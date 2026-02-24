@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Productivity Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body class="auth-required">
+    <!-- Landing / Auth Page -->
+    <div id="authPage" class="auth-page">
+      <div class="auth-glass">
+        <div class="auth-header">
+          <div class="logo">
+            <span class="logo-glow"></span>
+            <span class="logo-text">Neon<span>Desk</span></span>
+          </div>
+          <h1>Welcome to the Future of Productivity</h1>
+          <p>Supercharge your workflow with AI-driven insights and focus.</p>
+        </div>
+        
+        <div class="auth-tabs">
+          <button id="tabLogin" class="tab-btn active">Login</button>
+          <button id="tabRegister" class="tab-btn">Register</button>
+        </div>
+
+        <form id="authForm" class="auth-form">
+          <div class="input-group">
+            <i data-lucide="mail"></i>
+            <input type="email" id="authEmail" placeholder="Email Address" required />
+          </div>
+          <div class="input-group">
+            <i data-lucide="lock"></i>
+            <input type="password" id="authPassword" placeholder="Password" required />
+          </div>
+          <button type="submit" id="authSubmit" class="btn-primary btn-block">
+            <span>Login to Dashboard</span>
+            <i data-lucide="arrow-right"></i>
+          </button>
+        </form>
+
+        <div class="auth-footer">
+          <p>Demo access: Use any email/password to enter.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="app hidden" id="mainApp">
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <div class="logo">
+            <span class="logo-glow"></span>
+            <span class="logo-text">Neon<span>Desk</span></span>
+          </div>
+        </div>
+        <nav class="sidebar-nav">
+          <a class="nav-item active" href="#" data-section="dashboard">
+            <i data-lucide="layout-dashboard"></i>
+            <span>Dashboard</span>
+          </a>
+          <a class="nav-item" href="#tasksCard">
+            <i data-lucide="check-square"></i>
+            <span>Tasks</span>
+          </a>
+          <a class="nav-item" href="#notesCard">
+            <i data-lucide="sticky-note"></i>
+            <span>Notes</span>
+          </a>
+          <a class="nav-item" href="#chartCard">
+            <i data-lucide="bar-chart-3"></i>
+            <span>Analytics</span>
+          </a>
+            <a class="nav-item" href="#" id="navSettings">
+              <i data-lucide="settings"></i>
+              <span>Settings</span>
+            </a>
+          </nav>
+          <div class="sidebar-footer">
+            <div class="mini-cta">
+              <div class="mini-cta-text">Focus Mode</div>
+              <button id="toggleFocus" class="btn-secondary btn-sm">
+                <i data-lucide="zap"></i><span>Toggle</span>
+              </button>
+            </div>
+          </div>
+        </aside>
+
+        <div class="main">
+          <header class="topbar">
+            <button id="sidebarToggle" class="icon-button">
+              <i data-lucide="menu"></i>
+            </button>
+            <div class="search">
+              <i data-lucide="search"></i>
+              <input id="globalSearch" type="text" placeholder="Search tasks, notes..." />
+            </div>
+            <div class="topbar-right">
+              <button id="quickAdd" class="btn-gradient">
+                <i data-lucide="plus-circle"></i><span>Add Task</span>
+              </button>
+              <div class="avatar-dropdown">
+                <div class="avatar" id="userAvatar" title="You">
+                  <span>PD</span>
+                </div>
+                <div class="dropdown-menu" id="userMenu">
+                  <a href="#" id="menuProfile"><i data-lucide="user"></i> Profile</a>
+                  <a href="#" id="menuSettings"><i data-lucide="settings"></i> Settings</a>
+                  <div class="divider"></div>
+                  <a href="#" id="btnLogout"><i data-lucide="log-out"></i> Logout</a>
+                </div>
+              </div>
+            </div>
+          </header>
+
+          <main class="grid" id="dashboardContent">
+            <section class="card tasks" id="tasksCard">
+              <div class="card-header">
+                <h2><i data-lucide="check-circle-2"></i><span>Task Board</span></h2>
+                <div class="header-actions">
+                  <button id="addTaskBtn" class="btn-gradient">
+                    <i data-lucide="plus"></i><span>Add</span>
+                  </button>
+                </div>
+              </div>
+              <div id="addTaskForm" class="add-task hidden">
+                <input id="newTaskTitle" type="text" placeholder="Task title" />
+                <button id="saveTaskBtn" class="btn-primary">Save</button>
+                <button id="cancelTaskBtn" class="btn-secondary">Cancel</button>
+              </div>
+              <ul id="taskList" class="task-list"></ul>
+            </section>
+
+            <section class="card notes" id="notesCard">
+              <div class="card-header">
+                <h2><i data-lucide="sticky-note"></i><span>Notes</span></h2>
+              </div>
+              <textarea id="notesInput" placeholder="Capture quick ideas and todos here..."></textarea>
+              <div class="notes-footer">
+                <div class="save-indicator" id="notesSaveIndicator">Saved</div>
+              </div>
+            </section>
+
+            <section class="card pomodoro" id="pomodoroCard">
+              <div class="card-header">
+                <h2><i data-lucide="alarm-clock"></i><span>Pomodoro</span></h2>
+              </div>
+              <div class="timer-display" id="timerDisplay">25:00</div>
+              <div class="timer-controls">
+                <button id="timerStart" class="btn-primary"><i data-lucide="play"></i><span>Start</span></button>
+                <button id="timerPause" class="btn-secondary"><i data-lucide="pause"></i><span>Pause</span></button>
+                <button id="timerReset" class="btn-secondary"><i data-lucide="rotate-ccw"></i><span>Reset</span></button>
+              </div>
+              <div class="timer-settings">
+                <label>
+                  <span>Minutes</span>
+                  <input id="timerMinutes" type="number" min="1" max="60" value="25" />
+                </label>
+                <div id="pomodoroStatus" class="pomodoro-status">Ready</div>
+              </div>
+            </section>
+
+            <section class="card chart" id="chartCard">
+              <div class="card-header">
+                <h2><i data-lucide="activity"></i><span>Productivity</span></h2>
+              </div>
+              <canvas id="productivityChart" height="160"></canvas>
+            </section>
+
+            <section class="card goals" id="goalsCard">
+              <div class="card-header">
+                <h2><i data-lucide="target"></i><span>Daily Goals</span></h2>
+              </div>
+              <div class="goal-controls">
+                <label>
+                  <span>Daily Task Goal</span>
+                  <input id="dailyGoalInput" type="number" min="1" max="50" value="5" />
+                </label>
+                <div id="goalSummary" class="goal-summary">0 / 5 tasks</div>
+              </div>
+              <div class="progress">
+                <div class="progress-bar" id="goalsProgress"></div>
+              </div>
+            </section>
+          </main>
+
+          <main class="settings-view hidden" id="settingsContent">
+            <div class="card full-width">
+              <div class="card-header">
+                <h2><i data-lucide="settings"></i><span>User Settings</span></h2>
+                <button class="btn-secondary btn-sm back-to-dash">Back to Dashboard</button>
+              </div>
+              <div class="settings-grid">
+                <div class="settings-item">
+                  <label>Display Name</label>
+                  <input type="text" value="Pranathi" />
+                </div>
+                <div class="settings-item checkbox-row">
+                  <label>Email Notification</label>
+                  <input type="checkbox" checked />
+                </div>
+                <div class="settings-item">
+                  <label>Dark Mode Theme</label>
+                  <select class="theme-select">
+                    <option>Neon Blue (Default)</option>
+                    <option>Cyber Purple</option>
+                    <option>Emerald Ghost</option>
+                  </select>
+                </div>
+              </div>
+              <button class="btn-primary save-btn">Save Changes</button>
+            </div>
+          </main>
+
+          <main class="profile-view hidden" id="profileContent">
+            <div class="card full-width">
+              <div class="card-header">
+                <h2><i data-lucide="user"></i><span>Your Profile</span></h2>
+                <button class="btn-secondary btn-sm back-to-dash">Back to Dashboard</button>
+              </div>
+              <div class="profile-header">
+                <div class="avatar large"><span>PD</span></div>
+                <div class="profile-info">
+                  <h3>Pranathi D.</h3>
+                  <p>Productivity Master</p>
+                </div>
+              </div>
+              <div class="profile-stats">
+                <div class="stat-box">
+                  <span class="stat-val">128</span>
+                  <span class="stat-lbl">Tasks Done</span>
+                </div>
+                <div class="stat-box">
+                  <span class="stat-val">42</span>
+                  <span class="stat-lbl">Pomo Sessions</span>
+                </div>
+              </div>
+            </div>
+          </main>
+        </div>
+      </div>
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>

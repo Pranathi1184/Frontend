@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Kanban - Premium Productivity</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <span class="logo-icon">N</span>
+                    <span class="logo-text">Nexus<span>Board</span></span>
+                </div>
+                <button id="toggleSidebar" class="icon-btn">
+                    <i data-lucide="chevron-left"></i>
+                </button>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-view="board">
+                    <i data-lucide="layout"></i>
+                    <span>Board Overview</span>
+                </a>
+                <a href="#" class="nav-item" data-view="tasks">
+                    <i data-lucide="check-square"></i>
+                    <span>Tasks</span>
+                </a>
+                <a href="#" class="nav-item" data-view="team">
+                    <i data-lucide="users"></i>
+                    <span>Team</span>
+                </a>
+                <a href="#" class="nav-item" data-view="settings">
+                    <i data-lucide="settings"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="avatar">PD</div>
+                    <div class="user-info">
+                        <p class="name">Pranathi D.</p>
+                        <p class="role">Admin</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="topbar">
+                <div class="topbar-left">
+                    <h1 id="boardTitle">Product Development</h1>
+                    <div class="board-stats">
+                        <span id="totalTasks">0 tasks</span>
+                    </div>
+                </div>
+                <div class="topbar-right">
+                    <div class="search-bar">
+                        <i data-lucide="search"></i>
+                        <input type="text" id="taskSearch" placeholder="Search tasks...">
+                    </div>
+                    <button id="addTaskBtn" class="btn btn-gradient">
+                        <i data-lucide="plus"></i>
+                        <span>Add Task</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Kanban Board -->
+            <div class="board-area view-container active" id="boardView">
+                <div id="columnContainer" class="column-container"></div>
+                
+                <button id="addColumnBtn" class="add-column-btn">
+                    <i data-lucide="plus"></i>
+                    <span>Add Column</span>
+                </button>
+            </div>
+
+            <!-- Other Views -->
+            <div class="view-container" id="tasksView">
+                <div class="view-content">
+                    <div class="view-header">
+                        <h2>All Tasks</h2>
+                        <p>Detailed overview of all project tasks across all columns.</p>
+                    </div>
+                    <div class="tasks-table-container">
+                        <table class="data-table" id="allTasksTable">
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Status</th>
+                                    <th>Priority</th>
+                                    <th>Label</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="allTasksBody">
+                                <!-- Tasks will be populated here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="view-container" id="teamView">
+                <div class="view-content">
+                    <div class="view-header">
+                        <div class="header-main">
+                            <h2>Team Management</h2>
+                            <p>Manage your project collaborators and their permissions.</p>
+                        </div>
+                        <button class="btn btn-primary"><i data-lucide="user-plus"></i> Invite Member</button>
+                    </div>
+                    <div class="team-grid">
+                        <div class="team-card">
+                            <div class="avatar">PD</div>
+                            <div class="team-info">
+                                <h3>Pranathi D.</h3>
+                                <p>Admin (Owner)</p>
+                            </div>
+                            <div class="team-status online">Active</div>
+                        </div>
+                        <div class="team-card">
+                            <div class="avatar" style="background: var(--accent-blue)">JD</div>
+                            <div class="team-info">
+                                <h3>John Doe</h3>
+                                <p>Developer</p>
+                            </div>
+                            <div class="team-status">Offline</div>
+                        </div>
+                        <div class="team-card">
+                            <div class="avatar" style="background: var(--accent-purple)">SA</div>
+                            <div class="team-info">
+                                <h3>Sarah Adams</h3>
+                                <p>Product Manager</p>
+                            </div>
+                            <div class="team-status online">Active</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="view-container" id="settingsView">
+                <div class="view-content">
+                    <div class="view-header">
+                        <h2>Board Settings</h2>
+                        <p>Customize your workspace and board behavior.</p>
+                    </div>
+                    <div class="settings-grid-kanban">
+                        <div class="settings-section">
+                            <h3>General</h3>
+                            <div class="setting-item">
+                                <label>Board Name</label>
+                                <input type="text" value="Product Development">
+                            </div>
+                            <div class="setting-item">
+                                <label>Visibility</label>
+                                <select>
+                                    <option>Private</option>
+                                    <option>Team Only</option>
+                                    <option selected>Public</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="settings-section">
+                            <h3>Preferences</h3>
+                            <div class="setting-item checkbox">
+                                <input type="checkbox" checked id="showLabels">
+                                <label for="showLabels">Show task labels on cards</label>
+                            </div>
+                            <div class="setting-item checkbox">
+                                <input type="checkbox" checked id="dragAnim">
+                                <label for="dragAnim">Enable drag animations</label>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-gradient" style="margin-top: 24px;">Save Settings</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Task Modal -->
+    <div class="modal-overlay" id="taskModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 id="modalTitle">Add New Task</h2>
+                <button class="close-modal icon-btn"><i data-lucide="x"></i></button>
+            </div>
+            <form id="taskForm" class="modal-form">
+                <input type="hidden" id="taskId">
+                <input type="hidden" id="columnId">
+                
+                <div class="form-group">
+                    <label for="taskTitle">Title</label>
+                    <input type="text" id="taskTitle" placeholder="What needs to be done?" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="taskDesc">Description</label>
+                    <textarea id="taskDesc" placeholder="Add more details..."></textarea>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="taskColumn">Column</label>
+                        <select id="taskColumn">
+                            <!-- Options will be populated dynamically -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="taskPriority">Priority</label>
+                        <select id="taskPriority">
+                            <option value="low">Low</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="taskLabel">Label</label>
+                    <select id="taskLabel">
+                        <option value="feature">Feature</option>
+                        <option value="bug">Bug</option>
+                        <option value="design">Design</option>
+                        <option value="research">Research</option>
+                    </select>
+                </div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary close-modal">Cancel</button>
+                    <button type="submit" class="btn btn-gradient">Save Task</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

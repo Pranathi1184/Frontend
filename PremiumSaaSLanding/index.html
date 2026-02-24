@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus - Premium SaaS Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+</head>
+<body>
+    <!-- Background Mesh -->
+    <div class="mesh-bg"></div>
+
+    <!-- Sticky Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <span class="logo-icon">N</span>
+                Nexus
+            </a>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#showcase">Product</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+            <div class="nav-cta">
+                <a href="signup.html" class="btn btn-primary">Get Started</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title reveal">The Next Evolution of <span class="gradient-text">Productivity</span></h1>
+                <p class="hero-subtitle reveal">Build, scale, and optimize your workflow with our advanced SaaS platform. Designed for high-performance teams.</p>
+                <div class="hero-btns reveal">
+                    <a href="signup.html" class="btn btn-gradient">Start Building Free</a>
+                    <a href="demo.html" class="btn btn-secondary">Book a Demo</a>
+                </div>
+                <div class="hero-mockup reveal">
+                    <div class="mockup-frame">
+                        <div class="mockup-header">
+                            <div class="dots"><span></span><span></span><span></span></div>
+                        </div>
+                        <div class="mockup-body">
+                            <div class="mockup-sidebar">
+                                <div class="sidebar-item"></div>
+                                <div class="sidebar-item"></div>
+                                <div class="sidebar-item active"></div>
+                                <div class="sidebar-item"></div>
+                            </div>
+                            <div class="mockup-main">
+                                <div class="mockup-top">
+                                    <div class="top-title"></div>
+                                    <div class="top-user"></div>
+                                </div>
+                                <div class="mockup-grid">
+                                    <div class="mockup-card">
+                                        <div class="card-chart"></div>
+                                        <div class="card-line"></div>
+                                        <div class="card-line short"></div>
+                                    </div>
+                                    <div class="mockup-card">
+                                        <div class="card-stats">
+                                            <span></span><span></span><span></span>
+                                        </div>
+                                        <div class="card-line"></div>
+                                    </div>
+                                    <div class="mockup-card">
+                                        <div class="card-circle"></div>
+                                        <div class="card-line short"></div>
+                                    </div>
+                                </div>
+                                <div class="mockup-bottom-row">
+                                    <div class="mockup-wide-card">
+                                        <div class="wide-line"></div>
+                                        <div class="wide-line short"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <i data-lucide="chevron-down"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section id="features" class="features section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title reveal">Powerful Features</h2>
+                <p class="section-subtitle reveal">Everything you need to manage your projects with efficiency and speed.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i data-lucide="zap"></i></div>
+                    <h3>Lightning Fast</h3>
+                    <p>Optimized for speed and performance. No more waiting for loaders.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i data-lucide="shield"></i></div>
+                    <h3>Secure by Design</h3>
+                    <p>Enterprise-grade security to keep your data safe and compliant.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i data-lucide="layers"></i></div>
+                    <h3>Multi-layer Flow</h3>
+                    <p>Organize complex tasks into simple, manageable workflows.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i data-lucide="bar-chart-3"></i></div>
+                    <h3>Advanced Analytics</h3>
+                    <p>Deep insights into your productivity and project progress.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i data-lucide="users"></i></div>
+                    <h3>Team Collaboration</h3>
+                    <p>Real-time updates and seamless communication for your entire team.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i data-lucide="cpu"></i></div>
+                    <h3>AI Powered</h3>
+                    <p>Smart automation and suggestions to help you work smarter.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Showcase -->
+    <section id="showcase" class="showcase section">
+        <div class="container">
+            <div class="showcase-split">
+                <div class="showcase-text reveal">
+                    <h2 class="section-title">Visual Workflow Management</h2>
+                    <p>Drag, drop, and automate. Our intuitive interface lets you build complex logic without writing a single line of code.</p>
+                    <ul class="check-list">
+                        <li><i data-lucide="check"></i> Real-time sync across all devices</li>
+                        <li><i data-lucide="check"></i> Custom automation triggers</li>
+                        <li><i data-lucide="check"></i> Seamless API integrations</li>
+                    </ul>
+                </div>
+                <div class="showcase-image reveal">
+                    <div class="glass-card showcase-box">
+                        <div class="line line-1"></div>
+                        <div class="line line-2"></div>
+                        <div class="line line-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title reveal">How Nexus Works</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-step reveal">
+                    <div class="step-num">1</div>
+                    <h3>Connect Your Apps</h3>
+                    <p>Integrate with over 2,000 tools you already use every day.</p>
+                </div>
+                <div class="timeline-step reveal">
+                    <div class="step-num">2</div>
+                    <h3>Design Your Flow</h3>
+                    <p>Use our visual builder to map out your ideal workflow.</p>
+                </div>
+                <div class="timeline-step reveal">
+                    <div class="step-num">3</div>
+                    <h3>Automate & Scale</h3>
+                    <p>Let Nexus handle the repetitive tasks while you focus on growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title reveal">Simple Pricing</h2>
+                <div class="pricing-toggle">
+                    <span>Monthly</span>
+                    <label class="switch">
+                        <input type="checkbox" id="pricingToggle">
+                        <span class="slider"></span>
+                    </label>
+                    <span>Yearly</span>
+                </div>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card reveal">
+                    <h3>Basic</h3>
+                    <div class="price">Free</div>
+                    <p>For individuals starting out.</p>
+                    <ul class="pricing-features">
+                        <li>5 Workflows</li>
+                        <li>Standard Support</li>
+                        <li>Basic Analytics</li>
+                    </ul>
+                    <a href="signup.html" class="btn btn-secondary">Get Started</a>
+                </div>
+                <div class="pricing-card featured reveal">
+                    <div class="badge">Most Popular</div>
+                    <h3>Pro</h3>
+                    <div class="price" data-monthly="$29" data-yearly="$19">$29<span>/mo</span></div>
+                    <p>For growing teams.</p>
+                    <ul class="pricing-features">
+                        <li>Unlimited Workflows</li>
+                        <li>Priority Support</li>
+                        <li>Advanced AI Features</li>
+                        <li>Team Management</li>
+                    </ul>
+                    <a href="signup.html" class="btn btn-gradient">Start Pro Trial</a>
+                </div>
+                <div class="pricing-card reveal">
+                    <h3>Enterprise</h3>
+                    <div class="price">Custom</div>
+                    <p>For large organizations.</p>
+                    <ul class="pricing-features">
+                        <li>Everything in Pro</li>
+                        <li>Dedicated Account Manager</li>
+                        <li>Custom Security</li>
+                        <li>SSO & SAML</li>
+                    </ul>
+                    <a href="demo.html" class="btn btn-secondary">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq section">
+        <div class="container small-container">
+            <h2 class="section-title reveal">Frequently Asked Questions</h2>
+            <div class="accordion">
+                <div class="accordion-item reveal">
+                    <div class="accordion-header">
+                        <h3>Is there a free trial?</h3>
+                        <i data-lucide="plus"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Yes! We offer a 14-day free trial on our Pro plan. No credit card required to start.</p>
+                    </div>
+                </div>
+                <div class="accordion-item reveal">
+                    <div class="accordion-header">
+                        <h3>Can I cancel anytime?</h3>
+                        <i data-lucide="plus"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Absolutely. You can cancel your subscription at any time from your settings panel.</p>
+                    </div>
+                </div>
+                <div class="accordion-item reveal">
+                    <div class="accordion-header">
+                        <h3>Do you offer team discounts?</h3>
+                        <i data-lucide="plus"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Yes, we have volume pricing for teams of 20 or more. Contact our sales team for a custom quote.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta section">
+        <div class="container">
+            <div class="cta-banner reveal">
+                <h2>Ready to Transform Your Workflow?</h2>
+                <p>Join over 10,000 teams building the future with Nexus.</p>
+                <a href="signup.html" class="btn btn-primary btn-large">Get Started Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="logo">Nexus</a>
+                <p>The premium productivity platform for modern teams.</p>
+                <div class="social-links">
+                    <a href="#"><i data-lucide="twitter"></i></a>
+                    <a href="#"><i data-lucide="github"></i></a>
+                    <a href="#"><i data-lucide="linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Product</h4>
+                <ul>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Integrations</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Changelog</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-newsletter">
+                <h4>Newsletter</h4>
+                <p>Stay updated with our latest news.</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Email address">
+                    <button class="btn btn-primary">Subscribe</button>
+                </div>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Nexus SaaS. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
