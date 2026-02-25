@@ -1,0 +1,148 @@
+/* Reset */
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; font-family: 'Poppins', sans-serif; color: #e0e7ff; }
+
+/* Scenic Background */
+.weather-background {
+  position: fixed; inset: 0; z-index: -1;
+  background-size: cover; background-position: center;
+  transition: background 0.8s ease-in-out;
+}
+
+/* 🌞 Day backgrounds */
+.weather-clear     {background:url("https://images.pexels.com/photos/281260/pexels-photo-281260.jpeg?auto=compress&cs=tinysrgb&w=1920") center/cover no-repeat;}
+.weather-partlycloudy{background:url("https://images.pexels.com/photos/531756/pexels-photo-531756.jpeg?auto=compress&cs=tinysrgb&w=1920") center/cover no-repeat;}
+.weather-cloudy    {background:url("https://images.pexels.com/photos/414171/pexels-photo-414171.jpeg?auto=compress&cs=tinysrgb&w=1920") center/cover no-repeat;}
+.weather-overcast  {background:url("https://images.pexels.com/photos/158163/clouds-cloudporn-weather-lookup-158163.jpeg?auto=compress&cs=tinysrgb&w=1920") center/cover no-repeat;}
+.weather-lightrain {background:url("https://images.pexels.com/photos/459451/pexels-photo-459451.jpeg?auto=compress&cs=tinysrgb&w=1920") center/cover no-repeat;}
+.weather-rainy     {background:url("https://images.pexels.com/photos/110874/pexels-photo-110874.jpeg?auto=compress&cs=tinysrgb&w=1920") center/cover no-repeat;}
+.weather-heavyrain {background:url("https://images.pexels.com/photos/1106468/pexels-photo-1106468.jpeg?auto=compress&cs=tinysrgb&w=1920") center/cover no-repeat;}
+.weather-lightsnow {background:url("https://images.pexels.com/photos/257840/pexels-photo-257840.jpeg?auto=compress&cs=tinysrgb&w=1920") center/cover no-repeat;}
+.weather-snowy     {background:url("https://images.pexels.com/photos/289649/pexels-photo-289649.jpeg?auto=compress&cs=tinysrgb&w=1920") center/cover no-repeat;}
+.weather-heavysnow {background:url("https://images.pexels.com/photos/688660/pexels-photo-688660.jpeg?auto=compress&cs=tinysrgb&w=1920") center/cover no-repeat;}
+.weather-thunder   {background:url("https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=1920") center/cover no-repeat;}
+.weather-mist      {background:url("https://images.pexels.com/photos/6992/forest-trees-fog-foggy.jpg?auto=compress&cs=tinysrgb&w=1920") center/cover no-repeat;}
+
+/* 🌙 Night backgrounds */
+.weather-clear-night {
+  background:url("https://images.pexels.com/photos/1252869/pexels-photo-1252869.jpeg?auto=compress&cs=tinysrgb&w=1920") center/cover no-repeat;
+}
+.weather-partlycloudy-night {
+  background:url("https://images.pexels.com/photos/2189707/pexels-photo-2189707.jpeg?auto=compress&cs=tinysrgb&w=1920") center/cover no-repeat;
+}
+.weather-cloudy-night,
+.weather-overcast-night {
+  background:url("https://images.pexels.com/photos/258174/pexels-photo-258174.jpeg?auto=compress&cs=tinysrgb&w=1920") center/cover no-repeat;
+}
+.weather-rainy-night {
+  background:url("https://images.pexels.com/photos/110874/pexels-photo-110874.jpeg?auto=compress&cs=tinysrgb&w=1920") center/cover no-repeat;
+}
+.weather-thunder-night {
+  background:url("https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=1920") center/cover no-repeat;
+}
+.weather-snowy-night,
+.weather-lightsnow-night,
+.weather-heavysnow-night {
+  background:url("https://images.pexels.com/photos/259620/pexels-photo-259620.jpeg?auto=compress&cs=tinysrgb&w=1920") center/cover no-repeat;
+}
+.weather-mist-night {
+  background:url("https://images.pexels.com/photos/9754/mountains-clouds-fog-foggy.jpg?auto=compress&cs=tinysrgb&w=1920") center/cover no-repeat;
+}
+
+/* Glass look */
+.glass-panel {
+  background: rgba(43,53,75,0.2);  /* lighter, no white cast */
+  backdrop-filter: blur(8px);
+  border-radius: 14px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.35);
+  padding: 20px;
+  user-select: none;
+}
+.glass-panel h1, .glass-panel h2, .glass-panel h3, .glass-panel p, .glass-panel span {
+  user-select: text;
+}
+
+/* Layout */
+.dashboard-container {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 15px;
+  width: 95%;
+  max-width: 1400px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 15px;
+}
+.sidebar { display: flex; flex-direction: column; align-items: center; gap: 28px; padding-top: 22px; }
+.sidebar-icon { font-size: 1.5rem; color: #b9c2ff8f; cursor: pointer; }
+.sidebar-icon.active { color: #5d9cec; }
+
+.main-content { display: flex; flex-direction: column; gap: 20px; }
+.top-bar { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
+.search-and-profile { display: flex; align-items: center; gap: 8px; }
+.search-form { display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,.12); padding: 10px 12px; border-radius: 10px; }
+.search-form input { border: none; background: transparent!important; outline: none; color: #e0e7ff; width: 200px; }
+.geo-btn { border: none; border-radius: 8px; background: #5d9cec; color: #fff; padding: 10px 14px; cursor: pointer; }
+
+.main-grid {
+  display: grid;
+  grid-template-columns: 3fr 2fr; /* left wider, right slimmer */
+  gap: 20px;
+  align-items: start;
+}
+.left-col, .right-col { display: flex; flex-direction: column; gap: 20px; }
+
+/* Weather Card */
+.main-weather { min-height: 260px; }
+.temp-large { font-size: 6em; color: #ffc107; margin: 0; }
+.temp-row { display: flex; align-items: center; gap: 15px; flex-wrap: wrap; }
+.temp-row img { width: 60px; height: 60px; }
+.desc-feels { display: flex; flex-direction: column; line-height: 1.2; }
+.condition-text { margin: 0; font-size: 1.1em; text-transform: capitalize; }
+#feels-like { margin: 0; font-size: .9em; color: #d7dcffb3; }
+
+/* Highlights */
+.highlight-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 15px; }
+.highlight-card { background: rgba(255,255,255,.06); padding: 12px; border-radius: 10px; }
+
+/* Forecast */
+.forecast-panel { min-height: 220px; }
+.forecast-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* always 5 */
+  gap: 12px;
+}
+.forecast-day-card {
+  background: rgba(255,255,255,.1);
+  border-radius: 10px;
+  padding: 12px;
+  text-align: center;
+}
+.forecast-day-card img { width: 42px; height: 42px; }
+
+/* Other Locations */
+.city-mini {
+  display: flex; justify-content: space-between; align-items: center;
+  background: rgba(255,255,255,.06);
+  padding: 12px 14px; border-radius: 10px; margin-bottom: 10px;
+}
+.city-mini .mini-right { display: flex; align-items: center; gap: 10px; }
+.city-mini img { width: 28px; height: 28px; }
+.city-mini span { font-size: 1.05em; }
+.mini-cond { font-size: 0.9em; color: #ddd; text-transform: capitalize; }
+.mini-range { font-size: 0.85em; color: #bbb; }
+
+/* Errors */
+.error-text { color: #ff6b6b; text-align: center; margin-top: 10px; }
+
+/* Responsive */
+@media (max-width:1024px) {
+  .dashboard-container { grid-template-columns: 1fr; }
+  .main-grid { grid-template-columns: 1fr; }
+  .highlight-grid { grid-template-columns: repeat(2,1fr); }
+}
+@media (max-width:620px) {
+  .highlight-grid { grid-template-columns: 1fr; }
+  .temp-large { font-size: 4em; }
+  .search-form input { width: 140px; }
+}

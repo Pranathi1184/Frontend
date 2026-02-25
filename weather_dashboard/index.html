@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Weather Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+  <!-- Scenic background -->
+  <div id="weather-bg" class="weather-background"></div>
+
+  <div class="dashboard-container">
+    <!-- Sidebar -->
+    <aside class="sidebar glass-panel">
+      <div class="sidebar-icon active"><i class="fas fa-grip-horizontal"></i></div>
+      <div class="sidebar-icon"><i class="fas fa-calendar-alt"></i></div>
+      <div class="sidebar-icon"><i class="fas fa-list-ul"></i></div>
+      <div class="sidebar-icon"><i class="fas fa-bell"></i></div>
+    </aside>
+
+    <!-- Main -->
+    <main class="main-content">
+      <!-- Top bar -->
+      <header class="top-bar">
+        <div class="greeting">
+          <p>Hi, Dev</p>
+          <h2>Good Morning</h2>
+        </div>
+        <div class="search-and-profile">
+          <form id="city-search" class="search-form">
+            <i class="fas fa-search"></i>
+            <input type="text" id="city-input" placeholder="Search city (e.g., Delhi)" />
+          </form>
+          <button id="geo-btn" class="geo-btn" title="Use my location">
+            <i class="fas fa-location-arrow"></i>
+          </button>
+        </div>
+      </header>
+
+      <!-- Main Grid -->
+      <section class="main-grid">
+        <!-- Left column -->
+        <div class="left-col">
+          <!-- Current City -->
+          <div id="weather-display" class="main-weather glass-panel hidden">
+            <p id="city-name" class="location-text">Loading...</p>
+            <div class="current-date-temp">
+              <p id="current-day-date" class="day-date"></p>
+              <div class="temp-row">
+                <p id="temperature" class="temp-large"></p>
+                <img id="weather-icon" src="" alt="Weather icon">
+                <div class="desc-feels">
+                  <p id="description" class="condition-text"></p>
+                  <p id="feels-like">Feels like <span class="highlight-temp"></span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Forecast -->
+          <div class="forecast-panel glass-panel">
+            <h3>5 Day Forecast</h3>
+            <div class="forecast-grid"></div>
+          </div>
+        </div>
+
+        <!-- Right column -->
+        <div class="right-col">
+          <!-- Highlights -->
+          <div class="highlight-panel glass-panel">
+            <h3>Today's Highlight</h3>
+            <div class="highlight-grid">
+              <div class="highlight-card"><p><i class="fas fa-wind"></i> Wind</p><h4 id="wind-speed"></h4></div>
+              <div class="highlight-card"><p><i class="fas fa-tint"></i> Humidity</p><h4 id="humidity"></h4></div>
+              <div class="highlight-card"><p><i class="fas fa-eye"></i> Visibility</p><h4 id="visibility"></h4></div>
+              <div class="highlight-card"><p><i class="fas fa-tachometer-alt"></i> Pressure</p><h4 id="pressure"></h4></div>
+              <div class="highlight-card"><p><i class="fas fa-sun"></i> Sunrise</p><h4 id="sunrise"></h4></div>
+              <div class="highlight-card"><p><i class="fas fa-moon"></i> Sunset</p><h4 id="sunset"></h4></div>
+            </div>
+          </div>
+
+          <!-- Other Locations -->
+          <div class="other-countries glass-panel">
+            <h3>Other Locations</h3>
+            <div id="extra-cities"></div>
+          </div>
+        </div>
+      </section>
+
+      <p id="error-message" class="error-text hidden"></p>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
